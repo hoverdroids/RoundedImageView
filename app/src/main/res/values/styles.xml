@@ -1,21 +1,38 @@
 <resources>
-
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@drawable/app_background</item>
-        <item name="actionBarStyle">@style/HoverDroidsActionBar</item>
+        <item name="actionOverflowButtonStyle">@style/HoverDroidsOverflowButtonStyle</item>
     </style>
 
-    <style name="HoverDroidsActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="titleTextStyle">@style/HoverDroidsTitleTextStyle</item>
+    <style name="HoverDroidsToolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorSecondary">@color/abText</item><!--overflow icon...not working-->
     </style>
 
-    <style name="HoverDroidsTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/ab_text</item>
+    <style name="HoverDroidsOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/abText</item>
+    </style>
+
+    <style name="HoverDroidsToolbarText" parent="android:Widget.TextView">
+        <item name="android:textAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="android:textColor">@color/abText</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:typeface">sans</item>
+
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="fontFamily">@font/roboto</item><!--AppCompat-->
     </style>
+
+    <style name="HoverDroidsToolbarPopup" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="android:textColor">@color/abMenuText</item>
+        <item name="android:typeface">sans</item>
+
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="fontFamily">@font/roboto</item><!--AppCompat-->
+    </style>
+
 </resources>

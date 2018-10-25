@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Bitmap"
+        android:id="@+id/action_bitmap"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_oval"
+        android:title="Oval"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/action_select"
+        android:title="Select"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/action_picasso"
+        android:title="Picasso"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/action_color"
+        android:title="Color"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/action_background"
+        android:title="Background"
+        app:showAsAction="never">
+    </item>
+</menu>

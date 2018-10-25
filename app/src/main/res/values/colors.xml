@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#EEEEEE</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#ffa902</color>
+    <color name="colorPrimary">#EEEEEE</color><!-- Toolbar/AB -->
+    <color name="colorPrimaryDark">#BDBDBD</color><!--Status Bar-->
+    <color name="colorAccent">#EEEEEE</color><!--colorControlActivated and widget tint-->
     <color name="background">#AAAAAA</color>
-    <color name="ab_text">#616161</color>
+    <color name="abText">#78909C</color>
+    <color name="abMenuText">#78909C</color>
 </resources>

@@ -7,92 +7,98 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity{//} implements AdapterView.OnItemSelectedListener {
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //TODO apply with the toolbar since the is the main actionbar here
         applyHoverDroidsBranding();
-        getSupportActionBar().hide();
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Spinner navSpinner = (Spinner) findViewById(R.id.spinner_nav);
-
-        navSpinner.setAdapter(ArrayAdapter.createFromResource(
-                navSpinner.getContext(),
-                R.array.action_list,
-                android.R.layout.simple_spinner_dropdown_item));
-
-        navSpinner.setOnItemSelectedListener(this);
-
-        if (savedInstanceState == null) {
-            navSpinner.setSelection(0);
-        }
     }
 
-    @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
+        tb.inflateMenu(R.menu.menu_main);
+        tb.setOnMenuItemClickListener(
+                new Toolbar.OnMenuItemClickListener(){
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item){
+                        return onOptionsItemSelected(item);
+                    }
+                }
+        );
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+
         Fragment newFragment;
-        switch (position) {
+        switch (item.getItemId()) {
             default:
-            case 0:
-                // bitmap
+            case R.id.action_bitmap:
+                Toast.makeText(this, "Action Settings:bitmap", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.DEFAULT);
                 break;
-            case 1:
-                // oval
+            case R.id.action_oval:
+                Toast.makeText(this, "Action Settings:oval", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.OVAL);
                 break;
-            case 2:
-                // select
+            case R.id.action_select:
+                Toast.makeText(this, "Action Settings:select", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.SELECT_CORNERS);
                 break;
-            case 3:
-                // picasso
+            case R.id.action_picasso:
+                Toast.makeText(this, "Action Settings:picasso", Toast.LENGTH_SHORT).show();
                 newFragment = new PicassoFragment();
                 break;
-            case 4:
-                // color
+            case R.id.action_color:
+                Toast.makeText(this, "Action Settings:color", Toast.LENGTH_SHORT).show();
                 newFragment = new ColorFragment();
                 break;
-            case 5:
-                // background
+            case R.id.action_background:
+                Toast.makeText(this, "Action Settings:background", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.BACKGROUND);
                 break;
         }
-        /*
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, newFragment)
-                .commit();*/
-    }
 
-    @Override public void onNothingSelected(AdapterView<?> parent) { }
+        if(newFragment != null) {
+            /*
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, newFragment)
+                    .commit();*/
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
 
     //None of this is essential for the example. It is only used to brand HoverDroids examples
     private void applyHoverDroidsBranding() {
-        //Show app icon
-        ActionBar actBar = getSupportActionBar();
-        if (actBar != null) {
-            actBar.setDisplayShowHomeEnabled(true);
-            actBar.setIcon(R.mipmap.ic_ab_hoverdroids);
-            actBar.setTitle(R.string.ab_title);
-        }
 
-        //Set actions to take when the AB is clicked
-        Toolbar ab = findViewById(R.id.action_bar);
-        if (ab != null) {
-            for (int i = 0; i < ab.getChildCount(); i++) {
-                setActionBarChildActions(ab.getChildAt(i));
+        Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
+
+        //Take actions when users click the icon and title
+        if (tb != null) {
+            for (int i = 0; i < tb.getChildCount(); i++) {
+                setActionBarChildActions(tb.getChildAt(i));
             }
         }
+
+        //Set the toolbar as the ActionBar and disable the default title since we included it already
+        setSupportActionBar(tb);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     private void setActionBarChildActions(View child) {
