@@ -2,4 +2,13 @@
     <string name="app_name">RoundedImageView</string>
     <string name="ab_title">HoverDroids.com</string>
     <string name="main_text">HoverDroids</string>
+
+    <string-array name="action_list">
+        <item>Bitmap</item>
+        <item>Ovals</item>
+        <item>Select Corners</item>
+        <item>Picasso</item>
+        <item>Color</item>
+        <item>Background</item>
+    </string-array>
 </resources>
