@@ -45,7 +45,7 @@ public class ColorFragment extends Fragment {
         new ColorItem(android.R.color.holo_orange_dark, "Starry night", "Lake Powell, AZ",
             ScaleType.CENTER_CROP));
     adapter.add(
-        new ColorItem(android.R.color.holo_blue_dark, "Racetrack playa", "Death Valley, CA",
+        new ColorItem(android.R.color.holo_blue_dark, "Racetrack playa", "Does not work on ColorDraws",
             ScaleType.CENTER_INSIDE));
     adapter.add(
         new ColorItem(android.R.color.holo_green_dark, "Napali coast", "Kauai, HI",

@@ -62,29 +62,29 @@ public class RoundedFragment extends Fragment {
     StreamAdapter adapter = new StreamAdapter(getActivity());
 
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.photo1, "Tufa at night", "Mono Lake, CA", ScaleType.CENTER));
-/*    adapter.add(new StreamItem(getActivity(),
-        R.drawable.photo2, "Starry night", "Lake Powell, AZ", ScaleType.CENTER_CROP));
+        R.drawable.photo1_thumb, "Tufa at night", "Mono Lake, CA", ScaleType.CENTER));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.photo3, "Racetrack playa", "Death Valley, CA", ScaleType.CENTER_INSIDE));
+        R.drawable.photo2_thumb, "Starry night", "Lake Powell, AZ", ScaleType.CENTER_CROP));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.photo4, "Napali coast", "Kauai, HI", ScaleType.FIT_CENTER));
+        R.drawable.photo3_thumb, "Racetrack playa", "Death Valley, CA", ScaleType.CENTER_INSIDE));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.photo5, "Delicate Arch", "Arches, UT", ScaleType.FIT_END));
+        R.drawable.photo4_thumb, "Napali coast", "Kauai, HI", ScaleType.FIT_CENTER));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.photo6, "Sierra sunset", "Lone Pine, CA", ScaleType.FIT_START));
+        R.drawable.photo5_thumb, "Delicate Arch", "Arches, UT", ScaleType.FIT_END));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.photo7, "Majestic", "Grand Teton, WY", ScaleType.FIT_XY));
+        R.drawable.photo6_thumb, "Sierra sunset", "Lone Pine, CA", ScaleType.FIT_START));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.black_white_tile, "TileMode", "REPEAT", ScaleType.FIT_XY,
+        R.drawable.photo7_thumb, "Majestic", "Grand Teton, WY", ScaleType.FIT_XY));
+    adapter.add(new StreamItem(getActivity(),
+        R.drawable.pattern_hoverdroids_mini, "TileMode", "REPEAT", ScaleType.FIT_XY,
         Shader.TileMode.REPEAT));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.black_white_tile, "TileMode", "CLAMP", ScaleType.FIT_XY,
+        R.drawable.pattern_hoverdroids_mini, "TileMode", "CLAMP", ScaleType.FIT_XY,
         Shader.TileMode.CLAMP));
     adapter.add(new StreamItem(getActivity(),
-        R.drawable.black_white_tile, "TileMode", "MIRROR", ScaleType.FIT_XY,
+        R.drawable.pattern_hoverdroids_mini, "TileMode", "MIRROR", ScaleType.FIT_XY,
         Shader.TileMode.MIRROR));
-*/
+
     ((ListView) view.findViewById(R.id.main_list)).setAdapter(adapter);
     return view;
   }

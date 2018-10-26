@@ -4,26 +4,28 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity{//} implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         applyHoverDroidsBranding();
+
+        //Show the bitmap option by default
+        Fragment newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.DEFAULT);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, newFragment)
+                .commit();
     }
 
     @Override
@@ -48,36 +50,29 @@ public class MainActivity extends AppCompatActivity{//} implements AdapterView.O
         switch (item.getItemId()) {
             default:
             case R.id.action_bitmap:
-                Toast.makeText(this, "Action Settings:bitmap", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.DEFAULT);
                 break;
             case R.id.action_oval:
-                Toast.makeText(this, "Action Settings:oval", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.OVAL);
                 break;
             case R.id.action_select:
-                Toast.makeText(this, "Action Settings:select", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.SELECT_CORNERS);
                 break;
             case R.id.action_picasso:
-                Toast.makeText(this, "Action Settings:picasso", Toast.LENGTH_SHORT).show();
                 newFragment = new PicassoFragment();
                 break;
             case R.id.action_color:
-                Toast.makeText(this, "Action Settings:color", Toast.LENGTH_SHORT).show();
                 newFragment = new ColorFragment();
                 break;
             case R.id.action_background:
-                Toast.makeText(this, "Action Settings:background", Toast.LENGTH_SHORT).show();
                 newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.BACKGROUND);
                 break;
         }
 
         if(newFragment != null) {
-            /*
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, newFragment)
-                    .commit();*/
+                    .commit();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
