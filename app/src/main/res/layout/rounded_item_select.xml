@@ -16,7 +16,7 @@
       android:layout_alignParentStart="true"
       android:layout_alignParentEnd="true"
       android:padding="10dip"
-      android:src="@drawable/black_white_tile"
+      android:src="@drawable/pattern_hoverdroids_mini"
       android:scaleType="center"
       app:riv_corner_radius_top_left="30dp"
       app:riv_corner_radius_bottom_right="30dp"

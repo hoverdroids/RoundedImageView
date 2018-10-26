@@ -9,5 +9,4 @@
     android:persistentDrawingCache="none"
     android:scrollingCache="false"
     android:animationCache="false"
-    android:alwaysDrawnWithCache="false"
-    android:background="#00ff00"/>
+    android:alwaysDrawnWithCache="false"/>
